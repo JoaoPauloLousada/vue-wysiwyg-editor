@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="classes">
     <div class="btn-group" role="group" aria-label="Basic example">
       <button type="button" class="btn btn-secondary"><Bold /></button>
       <button type="button" class="btn btn-secondary"><Italic /></button>
@@ -26,6 +26,12 @@ export default {
     Strikethrough,
     Underline,
   },
+  props: {
+    classes: {
+      types: String,
+      default: ''
+    }
+  }
 };
 </script>
 

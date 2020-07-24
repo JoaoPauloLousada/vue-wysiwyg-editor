@@ -1,11 +1,7 @@
 <template>
   <div :class="classes">
     <select class="custom-select">
-      <option v-for="size in range" :key="size">size</option>
-      <!-- <option value="Arial" selected>12</option> -->
-      <!-- <option value="Comic Sans">14</option> -->
-      <!-- <option value="Roboto">16</option> -->
-      <!-- <option value="Roboto">18</option> -->
+      <option v-for="size in range" :key="size" :selected="size === defaultSize">{{size}}</option>
     </select>
   </div>
 </template>
@@ -26,23 +22,22 @@ export default {
       type: Number,
       default: 36,
     },
+    defaultSize: {
+      type: Number,
+      default: 12,
+    },
   },
   computed: {
     range: function () {
-      console.log("range");
-      const sizeRange = this.processRange(this.maxSize, this.minSize);
-      console.log("sizeRange", this.processRange(this.maxSize, this.minSize));
-      return sizeRange;
+      return this.processRange(this.maxSize, this.minSize);
     },
   },
   methods: {
     processRange(maxSize, minSize, arr = []) {
-      // console.log("processRange", arr);
       let initial = maxSize;
 
       if (initial < minSize) {
-        console.log("entrou no if", arr);
-        return arr;
+        return arr.reverse();
       }
 
       if (initial % 2 !== 0) initial -= 1;
@@ -50,7 +45,7 @@ export default {
       arr.push(initial);
       initial = initial - 2;
 
-      this.processRange(initial, minSize, arr);
+      return this.processRange(initial, minSize, arr);
     },
   },
 };

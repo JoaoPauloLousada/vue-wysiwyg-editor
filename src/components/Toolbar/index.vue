@@ -44,7 +44,7 @@ export default {
   props: {
     visibleComponents: {
       type: Array,
-      default: visibleComponents,
+      default: () => visibleComponents,
     },
   },
 };

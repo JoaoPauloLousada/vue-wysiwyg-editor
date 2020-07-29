@@ -8,7 +8,7 @@ const toolbarModule = {
     }
   },
   actions: {
-    async setActiveActions({ commit, state }, action) {
+    async setActiveActions({ commit, state }, {type: action}) {
       if (state.activeActions.includes(action)) {
         const newActiveActions = state.activeActions.filter(item => item !== action)
         commit('updateActiveActions', {activeActions: newActiveActions});  

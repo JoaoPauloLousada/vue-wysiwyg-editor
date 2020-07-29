@@ -5,24 +5,24 @@
         type="button"
         class="btn btn-secondary"
         :class="{active: boldActive}"
-        @click="e => handleClick(e, 'BOLD')"><Bold /></button>
+        @click="e => handleClick(e, 'BOLD', setActiveActions)"><Bold /></button>
       <button
         type="button"
         class="btn btn-secondary"
         :class="{active: italicActive}"
-        @click="e => handleClick(e, 'ITALIC')"><Italic /></button>
+        @click="e => handleClick(e, 'ITALIC', setActiveActions)"><Italic /></button>
       <button
         type="button"
         class="btn btn-secondary"
         :class="{active: strikethroughActive}"
-        @click="e => handleClick(e, 'STRIKETHROUGH')">
+        @click="e => handleClick(e, 'STRIKETHROUGH', setActiveActions)">
         <Strikethrough />
       </button>
       <button
         type="button"
         class="btn btn-secondary"
         :class="{active: underlineActive}"
-        @click="e => handleClick(e, 'UNDERLINE')">
+        @click="e => handleClick(e, 'UNDERLINE', setActiveActions)">
         <Underline />
       </button>
     </div>
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
+import ToolbarMixin from './ToolbarMixin'
 import Bold from "vue-material-design-icons/FormatBold.vue";
 import Italic from "vue-material-design-icons/FormatItalic.vue";
 import Strikethrough from "vue-material-design-icons/FormatStrikethroughVariant.vue";
@@ -43,6 +43,7 @@ export default {
     Strikethrough,
     Underline,
   },
+  mixins: [ToolbarMixin],
   props: {
     classes: {
       types: String,
@@ -61,17 +62,7 @@ export default {
     },
     underlineActive () {
       return this.activeActions.includes('UNDERLINE')
-    },
-    ...mapState({
-      activeActions: state => state.toolbar.activeActions
-    })
-  },
-  methods: {
-    handleClick (e, action) {
-      this.setActiveActions(action)
-      e.target.blur()
-    },
-    ...mapActions(['setActiveActions'])
+    }
   }
 };
 </script>

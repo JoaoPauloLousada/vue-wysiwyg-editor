@@ -16,3 +16,21 @@ export const ToolbarTypes = {
   ALIGN_RIGHT: 'ALIGN_RIGHT',
   ALIGN_JUSTIFY: 'ALIGN_JUSTIFY',
 }
+
+export const commandTypes = {
+  [ToolbarTypes.BOLD]: 'bold',
+  [ToolbarTypes.ITALIC]: 'italic',
+  [ToolbarTypes.STRIKETHROUGH]: 'strikeThrough',
+  [ToolbarTypes.UNDERLINE]: 'underline',
+  [ToolbarTypes.ALIGN_CENTER]: 'justifyCenter',
+  [ToolbarTypes.ALIGN_LEFT]: 'justifyLeft',
+  [ToolbarTypes.ALIGN_RIGHT]: 'justifyRight',
+  [ToolbarTypes.ALIGN_JUSTIFY]: 'justifyFull',
+}
+
+export const getDocumentCommand = (action) => commandTypes[action];
+
+export const execDocumentCommand = (action) => {
+  console.log('getDocumentCommand',getDocumentCommand(action))
+  document.execCommand(getDocumentCommand(action))
+}

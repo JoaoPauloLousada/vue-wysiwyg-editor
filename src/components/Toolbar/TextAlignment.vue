@@ -5,25 +5,25 @@
         type="button"
         class="btn btn-secondary"
         :class="{active: alignLeftActive}"
-        @click="e => handleClick(e, 'ALIGN_LEFT', setActiveActions)"
+        @click="e => handleClick(e, ToolbarTypes.ALIGN_LEFT, setActiveActions)"
       ><AlignLeft /></button>
       <button 
         type="button" 
         class="btn btn-secondary"
         :class="{active: alignCenterActive}"
-        @click="e => handleClick(e, 'ALIGN_CENTER', setActiveActions)"
+        @click="e => handleClick(e, ToolbarTypes.ALIGN_CENTER, setActiveActions)"
       ><AlignCenter /></button>
       <button 
         type="button" 
         class="btn btn-secondary"
         :class="{active: alignRightActive}"
-        @click="e => handleClick(e, 'ALIGN_RIGHT', setActiveActions)"
+        @click="e => handleClick(e, ToolbarTypes.ALIGN_RIGHT, setActiveActions)"
       ><AlignRight /></button>
       <button 
         type="button" 
         class="btn btn-secondary"
         :class="{active: alignJustifyActive}"
-        @click="e => handleClick(e, 'ALIGN_JUSTIFY', setActiveActions)"
+        @click="e => handleClick(e, ToolbarTypes.ALIGN_JUSTIFY, setActiveActions)"
       ><AlignJustify /></button>
     </div>
   </div>

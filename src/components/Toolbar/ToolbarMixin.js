@@ -1,7 +1,12 @@
 import { mapActions, mapState } from 'vuex'
-import { handleClick } from '@/services/toolbar'
+import { handleClick, ToolbarTypes } from '@/services/toolbar'
 
 export default {
+  data() {
+    return {
+      ToolbarTypes
+    }
+  },
   computed: {
     alignCenterActive () {
       return this.activeActions.includes('ALIGN_CENTER')

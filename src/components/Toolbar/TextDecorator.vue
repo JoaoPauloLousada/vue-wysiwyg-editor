@@ -5,24 +5,24 @@
         type="button"
         class="btn btn-secondary"
         :class="{active: boldActive}"
-        @click="e => handleClick(e, 'BOLD', setActiveActions)"><Bold /></button>
+        @click="e => handleClick(e, ToolbarTypes.BOLD, setActiveActions)"><Bold /></button>
       <button
         type="button"
         class="btn btn-secondary"
         :class="{active: italicActive}"
-        @click="e => handleClick(e, 'ITALIC', setActiveActions)"><Italic /></button>
+        @click="e => handleClick(e, ToolbarTypes.ITALIC, setActiveActions)"><Italic /></button>
       <button
         type="button"
         class="btn btn-secondary"
         :class="{active: strikethroughActive}"
-        @click="e => handleClick(e, 'STRIKETHROUGH', setActiveActions)">
+        @click="e => handleClick(e, ToolbarTypes.STRIKETHROUGH, setActiveActions)">
         <Strikethrough />
       </button>
       <button
         type="button"
         class="btn btn-secondary"
         :class="{active: underlineActive}"
-        @click="e => handleClick(e, 'UNDERLINE', setActiveActions)">
+        @click="e => handleClick(e, ToolbarTypes.UNDERLINE, setActiveActions)">
         <Underline />
       </button>
     </div>
